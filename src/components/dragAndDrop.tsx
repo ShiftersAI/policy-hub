@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Button } from "@/components/ui/button";
 
 const DragAndDrop: React.FC = () => {
   const [files, setFiles] = useState<File[]>([]);
@@ -29,14 +28,6 @@ const DragAndDrop: React.FC = () => {
           <li key={index}>{file.name} </li>
         ))}
       </ul>
-      <div className="flex justify-center">
-        <Button
-          variant="secondary"
-          className="mt-4 px-4 py-2 text-xl mr-4"
-          onClick={() => setFiles([])}>
-          Send
-        </Button>
-      </div>
     </div>
   );
 };
