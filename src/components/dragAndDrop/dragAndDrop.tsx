@@ -1,7 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
+import FileLine from "./fileLine";
+import { useAtom } from "jotai";
+import { filesAtom } from "@/atoms/filesAtom";
 
 const DragAndDrop: React.FC = () => {
-  const [files, setFiles] = useState<File[]>([]);
+  const [files, setFiles] = useAtom(filesAtom);
 
   const handleDrop = (event: React.DragEvent<HTMLDivElement>) => {
     event.preventDefault();
@@ -25,7 +28,7 @@ const DragAndDrop: React.FC = () => {
 
       <ul className="mt-4 text-gray-300 text-left">
         {files.map((file, index) => (
-          <li key={index}>{file.name} </li>
+          <FileLine key={index} name={file.name} file={file} />
         ))}
       </ul>
     </div>
